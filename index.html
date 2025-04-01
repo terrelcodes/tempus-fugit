@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="hero">
+        <h1>Welcome to My Site</h1>
+        <p>A catchy tagline goes here.</p>
+    </header>
+
+    <main>
+        <section class="teasers">
+            <article class="teaser vwm">
+                <h2>Teaser 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="content1.html">Learn More</a>
+            </article>
+            <article class="teaser">
+                <h2>Teaser 2</h2>
+                <p>Nullam auctor, justo nec ultricies elementum, erat justo euismod nulla, sit amet ultricies justo quam quis eros.</p>
+                                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+                                <p>Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
+                                </p>
+                <a href="content2.html">Learn More</a>
+            </article>
+            <article class="teaser">
+                <h2>Teaser 3</h2>
+                <p>Short description.</p>
+                <a href="#">Learn More</a>
+            </article>
+        </section>
+
+        <section class="about">
+            <h2>About Us</h2>
+            <p>We’re a team dedicated to awesome things.</p>
+            <object type="image/svg+xml" data="tempusfugit.svg" id="clock"></object>
+            <not-an-img not-id="clock" src="clock-hands.svg" alt="An animated clock.
+             Around the face is a Latin phrase, 'Tempus fugit ut umbra, hic in spiratu, priusquam capias evanuit.', 
+             which means 'Time flits like a shadow, here in a breath, gone before you grasp it.'
+             It is followed by another phrase, 'Tempus donum est; electio ars est', 
+             which means 'Time is a gift; choice is an art.'
+             The two phrases are separated by a pair of crescent moon bullets.">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website. All rights reserved.</p>
+        <nav>
+            <a href="#">Privacy</a> | <a href="#">Terms</a>
+        </nav>
+    </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="-500 -500 1000 1000" version="1.1" id="svg1" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    svg { background-color: transparent; font-family: "Garamond SemiBold Italic", cursive; font-size: 45.5pt; 
+            border-radius: 50%;
+            background: conic-gradient(from 0deg at 50% 50%,
+                  #E0E0E0 0deg, #A9A9A9 30deg,  /* Silver 12-1 */
+                  #FFD700 30deg, #DAA520 60deg, /* Gold 1-2 */
+                  #E0E0E0 60deg, #A9A9A9 90deg, /* Silver 2-3 */
+                  #FFD700 90deg, #DAA520 120deg, /* Gold 3-4 */
+                  #E0E0E0 120deg, #A9A9A9 150deg, /* Silver 4-5 */
+                  #FFD700 150deg, #DAA520 180deg, /* Gold 5-6 */
+                  #E0E0E0 180deg, #A9A9A9 210deg, /* Silver 6-7 */
+                  #FFD700 210deg, #DAA520 240deg, /* Gold 7-8 */
+                  #E0E0E0 240deg, #A9A9A9 270deg, /* Silver 8-9 */
+                  #FFD700 270deg, #DAA520 300deg, /* Gold 9-10 */
+                  #E0E0E0 300deg, #A9A9A9 330deg, /* Silver 10-11 */
+            #FFD700 330deg, #DAA520 360deg);
+        }
+        .yin {
+            fill:rgba(169,169,169,.5);
+        }
+        .yang {
+            fill: rgba(255,215,0,.5);
+        }
+    #curve { fill: none; }
+    #back {  fill: rgba(192, 192, 192, 0.5); }
+    #bezel { fill: none; stroke: url(#silverGradient); stroke-width: 120px; }
+    #minute * { fill: url(#silverGradient); stroke: #4C4C4C; } /* Dark silver stroke */
+    #hour * { fill: url(#goldGradient); stroke: #8B6914; } /* Dark gold stroke */
+    #second * { fill: url(#redGradient); stroke: #8B0000; } /* Dark red stroke */
+    path { fill: transparent; }
+    text { fill: black; }
+  </style>
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" /> <!-- Light gold -->
+      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" /> <!-- Goldenrod -->
+    </linearGradient>
+    <linearGradient id="silverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0;stop-opacity:1" /> <!-- Light silver -->
+      <stop offset="100%" style="stop-color:#A9A9A9;stop-opacity:1" /> <!-- Dark silver -->
+    </linearGradient>
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4500;stop-opacity:1" /> <!-- Orange-red -->
+      <stop offset="100%" style="stop-color:#8B0000;stop-opacity:1" /> <!-- Dark red -->
+    </linearGradient>
+    <!-- Clock Elements -->
+    <g id="face">
+      <circle cx="0" cy="0" r="400" class="yin" />
+      <circle cx="0" cy="0" r="400" class="yang" clip-path="url(#yinClip)" />
+      <circle id="bezel" cx="0" cy="0" r="440" />
+      <circle id="curve" cx="0" cy="0" r="425" transform="rotate(144 0 0)" />
+      <text width="1500">
+        <textPath href="#curve">
+          <tspan dx="65">☾</tspan><tspan dx="65">T</tspan><tspan dx="-15">e</tspan>mpus fugit ut umbra, hic in spiratu, priusquam capias e<tspan dx="1">v</tspan><tspan dx="-3">anuit.</tspan><tspan dx="65">☽</tspan><tspan dx="65">T</tspan><tspan dx="-15">e</tspan>mpus donum est; electio ars est.
+        </textPath>
+      </text>
+    </g>
+    <g id="hour">
+      <path d="M0,0 l30,-50 -30,-250 -30,250 z" />
+      <circle cx="0" cy="0" r="30" />
+    </g>
+    <g id="minute">
+      <path d="M0,0 l20,-50 -20,-290 -20,290 z" />
+      <circle cx="0" cy="0" r="22.5" />
+    </g>
+    <g id="second">
+      <path d="M0,0 l5,-5 -3,-370 -4,0 -3,370 z" />
+      <circle cx="0" cy="0" r="15" />
+    </g>
+ <clipPath id="yin-clip">
+      <path d="M 0,0
+               a 250 250 0 1 0 0 500 
+               a 500 500 0 0 1 0 -1000 
+               a 250 250 0 0 1 0 500 
+               z
+               M 75,-250 
+               a 75 75 0 0 0 -150 0 
+               a 75 75 0 0 0 150 0 
+               z
+               M 75,250 
+               a 75 75 0 0 0 -150 0 
+               a 75 75 0 0 0 150 0 
+               z 
+               " />
+    </clipPath>
+    <mask id="yang-mask">
+      <circle r="100%" fill="white" />
+      <circle r="100%" fill="black" clip-path="url(#yin-clip)"/>  
+    </mask>
+    <g id="yinyang">
+      <circle r="500" class="yin" mask="url(#yang-mask)" />
+      <circle r="500" class="yang" clip-path="url(#yin-clip)" />
+    </g> 
+
+  </defs>
+  <use href="#face" />
+  <use href="#yinyang" transform="scale(.76)" />
+  <use href="#hour"  />
+  <use href="#minute"  />
+  <use href="#second" />
+
+  <script type="text/javascript"><![CDATA[
+    const svg = document.querySelector('#svg1');
+    const hourHand = svg.querySelector('#hour');
+    const minuteHand = svg.querySelector('#minute');
+    const secondHand = svg.querySelector('#second');
+
+    function updateClock() {
+      const now = new Date();
+      const seconds = now.getSeconds() + now.getMilliseconds() / 1000;
+      const minutes = now.getMinutes() + seconds / 60;
+      const hours = (now.getHours()%12) + minutes / 60;
+
+      const hourAngle   = (hours  * 30) % 360;
+      const minuteAngle = (minutes * 6) % 360;
+      const secondAngle = (seconds * 6) % 360;
+
+      hourHand.setAttribute('transform', `rotate(${hourAngle})`);
+      minuteHand.setAttribute('transform', `rotate(${minuteAngle})`);
+      secondHand.setAttribute('transform', `rotate(${secondAngle})`);
+
+      requestAnimationFrame(updateClock);
+    }
+
+    updateClock();
+  ]]></script>
+</svg>
